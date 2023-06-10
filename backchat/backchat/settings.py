@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = 'django-insecure-qa*&!b2g%br-&c8f1!)yi!9z_p#vy!*6-8-gdejoibw%h42_ym
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -45,28 +43,6 @@ INSTALLED_APPS = [
 
 ASGI_APPLICATION = "backchat.asgi.application"
 
-CHANNEL_LAYERS = {
-    'default': {
-       'BACKEND': 'channels.layers.InMemoryChannelLayer',
-   }
-}
-"""
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'asgi_redis.RedisChannelLayer',
-        'CONFIG': {
-            'hosts': [('redis-host-url', 6379)]
-        },
-    }
-}
-"""
-
-AUTH_USER_MODEL = 'accounts.User'
-# LOGIN_REDIRECT_URLet LOGIN_URLpour spécifier le nom de l'URL qui sera redirigé une fois l'utilisateur connecté et
-# le nom de l'URL de connexion par défaut respectivement
-LOGIN_REDIRECT_URL = "index"
-LOGIN_URL = "login"
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -82,7 +58,7 @@ ROOT_URLCONF = 'backchat.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR , 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -98,7 +74,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backchat.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -108,7 +83,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -128,18 +102,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Indian/Antananarivo'
 
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -150,3 +122,25 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    }
+}
+"""
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'asgi_redis.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [('redis-host-url', 6379)]
+        },
+    }
+}
+"""
+
+AUTH_USER_MODEL = 'accounts.User'
+# LOGIN_REDIRECT_URLet LOGIN_URLpour spécifier le nom de l'URL qui sera redirigé une fois l'utilisateur connecté et
+# le nom de l'URL de connexion par défaut respectivement
+LOGIN_REDIRECT_URL = "index"
+LOGIN_URL = "login"

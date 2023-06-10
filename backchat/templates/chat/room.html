@@ -2,6 +2,7 @@
 
 {% block base %}
     <h2>{{ name }}</h2>
+    <p>Room Code: {{ slug }}</p>
     <div hx-ws="send:/chat/{{ slug }}/">
         <form hx-ws="send:submit">
             <label for="message">Message</label>
