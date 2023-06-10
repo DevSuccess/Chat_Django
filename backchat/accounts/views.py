@@ -20,4 +20,3 @@ def register(request):
                 'form': form
             }
             return render(request, 'accounts/register.html', context)
-        
