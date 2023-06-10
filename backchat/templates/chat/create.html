@@ -4,7 +4,7 @@
     <form method="post" action="{% url 'chat:room-create' %}">
         {% csrf_token %}
         <label for="room_name">Name</label>
-        <input type="text" name="room_name" id="room_name" placeholder="Room Name">
-        <input type="submit" id="submit" value="Submit">
+        <input name="room_name" id="room_name" placeholder="Room Name">
+        <input type="submit" id="submit">
     </form>
 {% endblock %}

@@ -29,7 +29,7 @@ def room_create(request):
         context = {
             'slug': room.slug
         }
-        return redirect(reverse('chat', kwargs=context))
+        return redirect(reverse('chat:chat', kwargs=context))
     else:
         return render(request, 'chat/create.html')
 
@@ -42,6 +42,6 @@ def room_join(request):
         context = {
             'slug': room.slug
         }
-        return redirect(reverse('chat', kwargs=context))
+        return redirect(reverse('chat:chat', kwargs=context))
     else:
         return render(request, 'chat/join.html')
