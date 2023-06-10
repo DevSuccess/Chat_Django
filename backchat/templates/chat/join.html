@@ -1,10 +1,22 @@
 {% extends 'base.html' %}
 
 {% block base %}
-    <form action="{% url 'chat:room-join' %}" method="post">
-        {% csrf_token %}
-        <label for="room_name">Code</label>
-        <input name="room_name" id="room_name" placeholder="Room Code" required>
-        <input type="submit" id="submit">
-    </form>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <form action="{% url 'chat:room-join' %}" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="room_name" class="form-label">Code:</label>
+                            <input type="text" name="room_name" id="room_name" class="form-control" placeholder="Room Code" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Join Room</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -14,7 +14,7 @@ def register(request):
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             messages.success(request, "Your account has been created! You are now able to log in.")
-            return redirect("chat:chat")
+            return redirect("chat:index")
     else:
         form = UserRegisterForm()
 
