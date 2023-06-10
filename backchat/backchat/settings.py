@@ -41,7 +41,8 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
-#  LOGIN_REDIRECT_URLet LOGIN_URLpour spécifier le nom de l'URL qui sera redirigé une fois l'utilisateur connecté et le nom de l'URL de connexion par défaut respectivement
+# LOGIN_REDIRECT_URLet LOGIN_URLpour spécifier le nom de l'URL qui sera redirigé une fois l'utilisateur connecté et
+# le nom de l'URL de connexion par défaut respectivement
 LOGIN_REDIRECT_URL = "index"
 LOGIN_URL = "login"
 
