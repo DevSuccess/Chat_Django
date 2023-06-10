@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
     'channels.apps.ChannelsConfig',
+    'chat.apps.ChatConfig',
 ]
 
 ASGI_APPLICATION = "backchat.asgi.application"
