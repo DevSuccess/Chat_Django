@@ -7,13 +7,19 @@
     <title>Chat App</title>
 </head>
 <body>
+    <a href="{% url 'chat:index' %}">Home</a>
     {% if user.is_authenticated %}
         <a href="{% url 'auth:logout' %}">Logout</a>
     {% else %}
         <a href="{% url 'auth:login' %}">Login</a>
     {% endif %}
+    <div hx-ext="ws" class="">
+
     <h1>Back Chat</h1>
     {% block base %}
+        <a href="{% url 'chat:room-join' %}">Join Room</a>
+        <a href="{% url 'chat:room-create' %}">Create Room</a>
     {% endblock %}
+    </div>
 </body>
 </html>

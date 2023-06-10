@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block base %}
+    <form action="{% url 'chat:room-join' %}" method="post">
+        {% csrf_token %}
+        <label for="room_slug">Code</label>
+        <input type="text" name="room_slug" id="room_slug" placeholder="Room Code" required>
+        <input type="submit" id="submit" value="Submit">
+    </form>
+{% endblock %}
