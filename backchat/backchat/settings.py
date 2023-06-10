@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne.apps.DaphneConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,7 +39,25 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
+    'channels.apps.ChannelsConfig',
 ]
+
+ASGI_APPLICATION = "backchat.asgi.application"
+
+#CHANNEL_LAYERS = {
+#    'default': {
+#       'BACKEND': 'channels.layers.InMemoryChannelLayer',
+#   }
+#}
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'asgi_redis.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [('redis-host-url', 6379)]
+        },
+    }
+}
 
 AUTH_USER_MODEL = 'accounts.User'
 # LOGIN_REDIRECT_URLet LOGIN_URLpour spécifier le nom de l'URL qui sera redirigé une fois l'utilisateur connecté et
