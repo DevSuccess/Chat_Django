@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+    <title>Chat App</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <a href="{% url 'auth:logout' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'auth:login' %}">Login</a>
+    {% endif %}
+    <h1>Back Chat</h1>
+    {% block base %}
+    {% endblock %}
+</body>
+</html>
