@@ -29,10 +29,11 @@ class ChatConsumer(AsyncWebsocketConsumer):
             self.room_group_name, self.channel_name
         )
 
-    async def receive(self, text_data=None, byte_date=None):
+    async def receive(self, text_data=None, **kwargs):
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
-        username = self.user.username
+        user = self.user
+        username = user.username
         
         await self.channel_layer.group_send(
             self.room_group_name,
@@ -46,10 +47,15 @@ class ChatConsumer(AsyncWebsocketConsumer):
     async def chat_message(self, event):
         message = event['message']
         username = event['username']
-        
+
+        message_html = f"""
+            <div hx-swap-oob='beforeend:#messages'>
+                <p><b>{username}</b>: {message}</p>
+            </div>
+            """
         await self.send(
             text_data=json.dumps({
-                'message': message,
+                'message': message_html,
                 'username': username
             })
         )
