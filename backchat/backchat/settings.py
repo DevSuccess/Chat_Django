@@ -44,12 +44,12 @@ INSTALLED_APPS = [
 
 ASGI_APPLICATION = "backchat.asgi.application"
 
-#CHANNEL_LAYERS = {
-#    'default': {
-#       'BACKEND': 'channels.layers.InMemoryChannelLayer',
-#   }
-#}
-
+CHANNEL_LAYERS = {
+    'default': {
+       'BACKEND': 'channels.layers.InMemoryChannelLayer',
+   }
+}
+"""
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'asgi_redis.RedisChannelLayer',
@@ -58,6 +58,7 @@ CHANNEL_LAYERS = {
         },
     }
 }
+"""
 
 AUTH_USER_MODEL = 'accounts.User'
 # LOGIN_REDIRECT_URLet LOGIN_URLpour spécifier le nom de l'URL qui sera redirigé une fois l'utilisateur connecté et
